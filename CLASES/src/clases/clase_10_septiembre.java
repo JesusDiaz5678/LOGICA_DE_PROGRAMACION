@@ -80,7 +80,7 @@ public class clase_10_septiembre {
     }
     
     
-    public static String movimientos_arc(){
+    static String movimientos_arc(){
         try {
             // VARIABLES
             String letra;
