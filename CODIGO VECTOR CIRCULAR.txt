@@ -1,0 +1,85 @@
+Hola a todos... acá va un código que resuelve el vector circular
+
+        try {
+            
+            Scanner teclado = new Scanner(System.in);
+              byte opcion = 0, cantidad_ok = 0, faltan=0;
+              char caracter;
+              String cadena_a_buscar="", cadena_vector="";
+              char[] vector;
+              
+              do{
+                  System.out.println("Ingrese el tamaño de la cadena a buscar: entre 3 y 6");
+                  opcion=teclado.nextByte();
+              }while (opcion <3 || opcion > 6);
+      
+              System.out.println("Ingrese el caracter que quiere buscar en la cadena: ");
+              caracter = teclado.next().charAt(0);
+              
+              for(byte car=1; car <= opcion; car++){
+                  cadena_a_buscar+=caracter;
+              }
+              
+              //Vector 3 veces mayor a la cadena
+              vector = new char[3*cadena_a_buscar.length()];
+              
+              //Llenar el vector aleatoriamente
+              for(byte ind =0; ind<vector.length;ind++){
+                  if(Math.random()*10 > 2)
+                      vector[ind] = caracter;
+                  else
+                      vector[ind] = 'O';
+              }
+              
+              for(byte ind = 0; ind<vector.length;ind++){
+                  if((vector.length - ind) >= cadena_a_buscar.length()){
+                      
+                        //Ciclo no circular
+                      for(byte j=ind; j<=ind+cadena_a_buscar.length()-1;j++){
+                          cadena_vector+=vector[j];
+                      }
+                      
+                      if (cadena_vector.equals(cadena_a_buscar))
+                        cantidad_ok++;
+                      
+                      cadena_vector="";
+                      
+                      
+                  }
+                  else{
+                      //Ciclo circular
+                      //Se necesita saber cuántos faltan
+                        faltan = (byte)(cadena_a_buscar.length() - (vector.length - ind));
+                        
+                        //hacemos un ciclo para recorrer los que falten del vector
+                        for(byte j = ind; j<vector.length;j++) {
+                              cadena_vector+=vector[j];
+                        }
+                        //hacemos un ciclo para recorrer desde cero y así implementar el recorrido circular
+                        
+                        for(byte k=0; k<faltan;k++) {
+                              cadena_vector+=vector[k];
+                        }
+                        
+                        if (cadena_vector.equals(cadena_a_buscar))
+                        cantidad_ok++;
+                      
+                      cadena_vector="";
+                        
+                        
+                  }
+                  
+                  
+              }
+              
+              
+              for(byte ind =0; ind<vector.length;ind++){
+                  System.out.print(vector[ind] + "|");
+              }
+              
+              System.out.println("Se encontraron " + cantidad_ok);
+       
+        }
+        catch(Exception error){
+            System.out.println("Ocurrió un error en vector ciruclar\n" + error);
+        }
