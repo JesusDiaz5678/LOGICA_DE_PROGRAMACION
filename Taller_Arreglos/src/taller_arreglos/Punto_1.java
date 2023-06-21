@@ -303,7 +303,9 @@ public class Punto_1 {
                               
                             break;  
                         }
-                    }while(opcion_2 != 9);    
+                    }while(opcion_2 != 9);
+                    break;
+                    
                     
                     //Anadir elemento al vector
                     case 3: do{
@@ -372,6 +374,8 @@ public class Punto_1 {
                                 break;
                         } 
                     }while(opcion_2 != 9);
+                    break;
+                    
                     
                     //Eliminar elemento al vector
                     case 4:do{
@@ -431,8 +435,132 @@ public class Punto_1 {
                             break;
                         }
                     }while(opcion_2 != 9);
+                    break;
                     
                     
+                    //Ordenar vector
+                    case 5:do{
+                        System.out.println("\n=========MENU/ORDENAR VECTOR========="+
+                                "\nQue vector desea eliminar elemento:"+
+                                "\n1. Vector numerico"+
+                                "\n2. Vector alfabetico"+
+                                "\n9. Regresar al apartado MENU");
+                        opcion_2 = on.nextByte();
+                        
+                        //Seleccion de ordenar vecto
+                        switch(opcion_2){
+                            //Ordenar vector numerico
+                            case 1 :
+                                System.out.println("\n=========MENU/ORDENAR VECTOR/Vector numerico========="+
+                                        "\nComo desea ordenar el vector numerico:"+
+                                        "\n1. Ascendentemente"+
+                                        "\n2. Descendentemente"+
+                                        "\n9. Regresar al apartado MENU/ORDENAR VECTOR");
+                                opcion_3 = on.nextByte();
+                                
+                                //Seleccion en vector numerico
+                                switch(opcion_3){
+                                    //Ordenar Ascendentemente
+                                    case 1 :
+                                        System.out.println("\n"+Ordenar_vector_numerico_Asc ());
+                                    break;
+                                    
+                                    //Ordenar Descendentemente
+                                    case 2:
+                                        System.out.println("\n"+Ordenar_vector_numerico_Des ());
+                                    break;
+                                }
+                            break;
+                            
+                            //Ordenar vector alfabetico
+                            case 2 :
+                                System.out.println("\n=========MENU/ORDENAR VECTOR/Vector alfabetico========="+
+                                        "\nComo desea ordenar el vector alfabetico:"+
+                                        "\n1. Ascendentemente"+
+                                        "\n2. Descendentemente"+
+                                        "\n9. Regresar al apartado MENU/ORDENAR VECTOR");
+                                opcion_3 = on.nextByte();
+                                
+                                //Seleccion en vector numerico
+                                switch(opcion_3){
+                                    //Ordenar Ascendentemente
+                                    case 1 :
+                                        System.out.println("\n"+Ordenar_vector_alfabetico_Asc ());
+                                    break;
+                                    
+                                    //Ordenar Descendentemente
+                                    case 2:
+                                        System.out.println("\n"+Ordenar_vector_alfabetico_Des ());
+                                    break;
+                                }
+                            break;
+                        }
+                    }while(opcion_2 != 9);
+                    break;
+                    
+                    
+                    //Buscar elemento en el vector
+                    case 6:do{
+                        System.out.println("\n=========MENU/BUSCAR ELEMENTO VECTOR========="+
+                                "\nQue vector desea buscar elemento:"+
+                                "\n1. Vector numerico"+
+                                "\n2. Vector alfabetico"+
+                                "\n9. Regresar al apartado MENU");
+                        opcion_2 = on.nextByte();
+                        
+                        //Seleccion de buscar elemento del vector
+                        switch(opcion_2){
+                            //Buscar elemento en el vector numerico
+                            case 1 :
+                                System.out.println("\n==================MENU/BUSCAR ELEMENTO VECTOR/Vector numerico=================="+
+                                        "\nIngrese el valor numerico que desea buscar en el vector."+
+                                        "\nRecuerde que solo se aceptan valores numericos entre el rango de 1-100");
+                                valor = on.nextByte();
+                                
+                                //Valido que el valor a buscar este dentro del rango
+                                while(valor < 1 || valor > 100){
+                                    System.out.println("\n==========================VALOR INCORRECTO=========================="+
+                                            "\nEl valor ingresado es incorrecto. "+
+                                            "Por favor, asegurece de ingresar un valor numerico entre 1-100");
+                                    valor = on.nextByte();
+                                }
+                                
+                                System.out.println("\n"+Buscar_vector_numerico (valor));
+                            break;
+                            
+                            //Buscar elemento en el vector alfabetico
+                            case 2:
+                                System.out.println("\n==================MENU/BUSCAR ELEMENTO VECTOR/Vector alfabetico=================="+
+                                        "\nIngrese el valor que desea buscar en el vector. "+
+                                        "\nRecuerde que el valor es de tipo alfabetico (Unicamente letras)");
+                                valor_t = on.next();
+                                //Convierto en mayuscula el valor ingresado
+                                valor_t1 = valor_t.toUpperCase();
+                                
+                                //Valido que el valor ingresado sea letra
+                                if(valor_t1.equals("A")|| valor_t1.equals("B") || valor_t1.equals("C") || valor_t1.equals("D")
+                                        ||valor_t1.equals("E") || valor_t1.equals("F") || valor_t1.equals("G") || valor_t1.equals("H")
+                                        || valor_t1.equals("I") || valor_t1.equals("J") || valor_t1.equals("K")
+                                        || valor_t1.equals("L") || valor_t1.equals("M") || valor_t1.equals("N") || valor_t1.equals("O")
+                                        || valor_t1.equals("P")|| valor_t1.equals("Q") || valor_t1.equals("R") || valor_t1.equals("S")
+                                        || valor_t1.equals("T") || valor_t1.equals("U") || valor_t1.equals("V") || valor_t1.equals("W")
+                                        || valor_t1.equals("X") || valor_t1.equals("Y") || valor_t1.equals("Z")){
+                                    //Enviamos el valor y la posicion a la Funcion
+                                    //Imprimios la variable retornada por la funcion
+                                    System.out.println("\n" + Buscar_vector_alfabetico (valor_t1));
+                                }
+                                
+                                //De lo contrario
+                                else{
+                                    System.out.println("\n==========================VALOR INCORRECTO=========================="+
+                                            "\nEl valor ingresado es incorrecto. "+
+                                            "Por favor, asegurece de ingresar un valor alfabetico (Unicamente letra)");
+                                    //Regresamos al menu actualizar vector alfabetico
+                                }
+                            break;
+                        }
+                    }while(opcion_2 != 9);
+                    break;
                         
                 }
                 
@@ -791,6 +919,720 @@ public class Punto_1 {
         }
         finally {
             //System.out.println("fin de la ejecución");
+        }
+    }
+
+    
+    //Funcion Ordenar_vector_numerico_Asc
+    public static String Ordenar_vector_numerico_Asc () throws Exception{
+        try {
+            //Variables
+            String text_ret = "";
+            byte valor_1 = 0;
+            
+            
+            for (int i = 0; i < v_numeros.length; i++) {
+                
+                for (int j = (i + 1); j < v_numeros.length; j++) {
+                    
+                    if(v_numeros[j] < v_numeros[i]){
+                        valor_1 = v_numeros[i];
+                        v_numeros[i] = v_numeros[j];
+                        v_numeros[j] = valor_1;
+                    }
+                }
+            }
+            
+            //Ciclo para recorrer el vector de numerico de forma ascendente
+            for (int i = 0; i < v_numeros.length; i++) {
+                text_ret += v_numeros[i] + "|";
+            }
+            
+            return text_ret;
+            
+            
+        }
+        
+        catch (Exception error) {
+            throw new Exception("\nSe presento un error en la funcion Ordenar_vector_numerico " + error);
+            
+        }
+        
+        finally {
+            //System.out.println("fin de la ejecución");
+            
+        }
+    }
+    
+    //Funcion Ordenar_vector_numerico_Des
+    public static String Ordenar_vector_numerico_Des () throws Exception{
+        try {
+            //Variables
+            String text_ret = "";
+            byte valor_1 = 0;
+            
+            
+            for (int i = 0; i < v_numeros.length; i++) {
+                
+                for (int j = (i + 1); j < v_numeros.length; j++) {
+                    
+                    if(v_numeros[j] > v_numeros[i]){
+                        valor_1 = v_numeros[i];
+                        v_numeros[i] = v_numeros[j];
+                        v_numeros[j] = valor_1;
+                    }
+                }
+            }
+            
+            //Ciclo para recorrer el vector de numerico de forma ascendente
+            for (int i = 0; i < v_numeros.length; i++) {
+                text_ret += v_numeros[i] + "|";
+            }
+            
+            return text_ret;
+            
+            
+        }
+        
+        catch (Exception error) {
+            throw new Exception("\nSe presento un error en la funcion Ordenar_vector_numerico " + error);
+            
+        }
+        
+        finally {
+            //System.out.println("fin de la ejecución");
+            
+        }
+    }
+    
+    //Funcion Ordenar_vector_alfabetico_As
+    public static String Ordenar_vector_alfabetico_Asc () throws Exception{
+        try {
+            //Variables
+            String text_ret = "";
+            
+            //Contadoras
+            byte A = 0;
+            byte B = 0;
+            byte C = 0;
+            byte D = 0;
+            byte E = 0;
+            byte F = 0;
+            byte G = 0;
+            byte H = 0;
+            byte I = 0;
+            byte J = 0;
+            byte K = 0;
+            byte L = 0;
+            byte M = 0;
+            byte N = 0;
+            byte O = 0;
+            byte P = 0;
+            byte Q = 0;
+            byte R = 0;
+            byte S = 0;
+            byte T = 0;
+            byte U = 0;
+            byte V = 0;
+            byte W = 0;
+            byte X = 0;
+            byte Y = 0;
+            byte Z = 0;
+            
+            //Variable de posicion
+            byte po = 0;
+            
+            //Vector alternativo
+            String []v_alternativo = new String[tamano_2];
+            
+            //Recorremos el vector v_letras y contabilizamos cada una de las letras que hay en el
+            for (int i = 0; i < v_letras.length; i++) {
+                switch(v_letras[i]){
+                    case "A":
+                        A++;
+                    break;
+                    case "B":
+                        B++;
+                    break;
+                    case "C":
+                        C++;
+                    break;
+                    case "D":
+                        D++;
+                    break;
+                    case "E":
+                        E++;
+                    break;
+                    case "F":
+                        F++;
+                    break;
+                    case "G":
+                        G++;
+                    break;
+                    case "H":
+                        H++;
+                    break;
+                    case "I":
+                        I++;
+                    break;
+                    case "J":
+                        J++;
+                    break;
+                    case "K":
+                        K++;
+                    break;
+                    case "L":
+                        L++;
+                    break;
+                    case "M":
+                        M++;
+                    break;
+                    case "N":
+                        N++;
+                    break;
+                    case "O":
+                        O++;
+                    break;
+                    case "P":
+                        P++;
+                    break;
+                    case "Q":
+                        Q++;
+                    break;
+                    case "R":
+                        R++;
+                    break;
+                    case "S":
+                        S++;
+                    break;
+                    case "T":
+                        T++;
+                    break;
+                    case "U":
+                        U++;
+                    break;
+                    case "V":
+                        V++;
+                    break;
+                    case "W":
+                        W++;
+                    break;
+                    case "X":
+                        X++;
+                    break;
+                    case "Y":
+                        Y++;
+                    break;
+                    case "Z":
+                        Z++;
+                    break;
+                }
+            }
+            
+            //Creamos 26 ciclos que nos van a permitir llenar el vector alternativo
+            while(A > 0){
+                v_alternativo[po] = "A";
+                A--;
+                po++;
+            }
+            while(B > 0){
+                v_alternativo[po] = "B";
+                B--;
+                po++;
+            }
+            while(C > 0){
+                v_alternativo[po] = "C";
+                C--;
+                po++;
+            }
+            while(D > 0){
+                v_alternativo[po] = "D";
+                D--;
+                po++;
+            }
+            while(E > 0){
+                v_alternativo[po] = "E";
+                E--;
+                po++;
+            }
+            while(F > 0){
+                v_alternativo[po] = "F";
+                F--;
+                po++;
+            }
+            while(G > 0){
+                v_alternativo[po] = "G";
+                G--;
+                po++;
+            }
+            while(H > 0){
+                v_alternativo[po] = "H";
+                H--;
+                po++;
+            }
+            while(I > 0){
+                v_alternativo[po] = "I";
+                I--;
+                po++;
+            }
+            while(J > 0){
+                v_alternativo[po] = "J";
+                J--;
+                po++;
+            }
+            while(K > 0){
+                v_alternativo[po] = "K";
+                K--;
+                po++;
+            }
+            while(L > 0){
+                v_alternativo[po] = "L";
+                L--;
+                po++;
+            }
+            while(M > 0){
+                v_alternativo[po] = "M";
+                M--;
+                po++;
+            }
+            while(N > 0){
+                v_alternativo[po] = "N";
+                N--;
+                po++;
+            }
+            while(O > 0){
+                v_alternativo[po] = "O";
+                O--;
+                po++;
+            }
+            while(P > 0){
+                v_alternativo[po] = "P";
+                P--;
+                po++;
+            }
+            while(Q > 0){
+                v_alternativo[po] = "Q";
+                Q--;
+                po++;
+            }
+            while(R > 0){
+                v_alternativo[po] = "R";
+                R--;
+                po++;
+            }
+            while(S > 0){
+                v_alternativo[po] = "S";
+                S--;
+                po++;
+            }
+            while(T > 0){
+                v_alternativo[po] = "T";
+                T--;
+                po++;
+            }
+            while(U > 0){
+                v_alternativo[po] = "U";
+                U--;
+                po++;
+            }
+            while(V > 0){
+                v_alternativo[po] = "V";
+                V--;
+                po++;
+            }
+            while(W > 0){
+                v_alternativo[po] = "W";
+                W--;
+                po++;
+            }
+            while(X > 0){
+                v_alternativo[po] = "X";
+                X--;
+                po++;
+            }
+            while(Y > 0){
+                v_alternativo[po] = "Y";
+                Y--;
+                po++;
+            }
+            while(Z > 0){
+                v_alternativo[po] = "Z";
+                Z--;
+                po++;
+            }
+            
+            v_letras = v_alternativo;
+            
+            //Ciclo para concatenar los elementos del vector en la variable de return
+            for (int i = 0; i < v_letras.length; i++) {
+                text_ret += v_letras[i] + "|";
+            }
+            
+            return text_ret;
+            
+        }
+        
+        catch (Exception error) {
+            throw new Exception("\nSe presento un error en la funcion Ordenar_vector_alfabetico_Asc " + error);
+            
+        }
+        
+        finally {
+            //System.out.println("fin de la ejecución");
+            
+        }
+    }
+
+    //Funcion Ordenar_vector_alfabetico_As
+    public static String Ordenar_vector_alfabetico_Des () throws Exception{
+        try {
+            //Variables
+            String text_ret = "";
+            
+            //Contadoras
+            byte A = 0;
+            byte B = 0;
+            byte C = 0;
+            byte D = 0;
+            byte E = 0;
+            byte F = 0;
+            byte G = 0;
+            byte H = 0;
+            byte I = 0;
+            byte J = 0;
+            byte K = 0;
+            byte L = 0;
+            byte M = 0;
+            byte N = 0;
+            byte O = 0;
+            byte P = 0;
+            byte Q = 0;
+            byte R = 0;
+            byte S = 0;
+            byte T = 0;
+            byte U = 0;
+            byte V = 0;
+            byte W = 0;
+            byte X = 0;
+            byte Y = 0;
+            byte Z = 0;
+            
+            //Variable de posicion
+            byte po = 0;
+            
+            //Vector alternativo
+            String []v_alternativo = new String[tamano_2];
+            
+            //Recorremos el vector v_letras y contabilizamos cada una de las letras que hay en el
+            for (int i = 0; i < v_letras.length; i++) {
+                switch(v_letras[i]){
+                    case "A":
+                        A++;
+                    break;
+                    case "B":
+                        B++;
+                    break;
+                    case "C":
+                        C++;
+                    break;
+                    case "D":
+                        D++;
+                    break;
+                    case "E":
+                        E++;
+                    break;
+                    case "F":
+                        F++;
+                    break;
+                    case "G":
+                        G++;
+                    break;
+                    case "H":
+                        H++;
+                    break;
+                    case "I":
+                        I++;
+                    break;
+                    case "J":
+                        J++;
+                    break;
+                    case "K":
+                        K++;
+                    break;
+                    case "L":
+                        L++;
+                    break;
+                    case "M":
+                        M++;
+                    break;
+                    case "N":
+                        N++;
+                    break;
+                    case "O":
+                        O++;
+                    break;
+                    case "P":
+                        P++;
+                    break;
+                    case "Q":
+                        Q++;
+                    break;
+                    case "R":
+                        R++;
+                    break;
+                    case "S":
+                        S++;
+                    break;
+                    case "T":
+                        T++;
+                    break;
+                    case "U":
+                        U++;
+                    break;
+                    case "V":
+                        V++;
+                    break;
+                    case "W":
+                        W++;
+                    break;
+                    case "X":
+                        X++;
+                    break;
+                    case "Y":
+                        Y++;
+                    break;
+                    case "Z":
+                        Z++;
+                    break;
+                }
+            }
+            
+            //Creamos 26 ciclos que nos van a permitir llenar el vector alternativo
+            while(Z > 0){
+                v_alternativo[po] = "Z";
+                Z--;
+                po++;
+            }
+            while(Y > 0){
+                v_alternativo[po] = "Y";
+                Y--;
+                po++;
+            }
+            while(X > 0){
+                v_alternativo[po] = "X";
+                X--;
+                po++;
+            }
+            while(W > 0){
+                v_alternativo[po] = "W";
+                W--;
+                po++;
+            }
+            while(V > 0){
+                v_alternativo[po] = "V";
+                V--;
+                po++;
+            }
+            while(U > 0){
+                v_alternativo[po] = "U";
+                U--;
+                po++;
+            }
+            while(T > 0){
+                v_alternativo[po] = "T";
+                T--;
+                po++;
+            }
+            while(S > 0){
+                v_alternativo[po] = "S";
+                S--;
+                po++;
+            }
+            while(R > 0){
+                v_alternativo[po] = "R";
+                R--;
+                po++;
+            }
+            while(Q > 0){
+                v_alternativo[po] = "Q";
+                Q--;
+                po++;
+            }
+            while(P > 0){
+                v_alternativo[po] = "P";
+                P--;
+                po++;
+            }
+            while(O > 0){
+                v_alternativo[po] = "O";
+                O--;
+                po++;
+            }
+            while(N > 0){
+                v_alternativo[po] = "N";
+                N--;
+                po++;
+            }
+            while(M > 0){
+                v_alternativo[po] = "M";
+                M--;
+                po++;
+            }
+            while(L > 0){
+                v_alternativo[po] = "L";
+                L--;
+                po++;
+            }
+            while(K > 0){
+                v_alternativo[po] = "K";
+                K--;
+                po++;
+            }
+            while(J > 0){
+                v_alternativo[po] = "J";
+                J--;
+                po++;
+            }
+            while(I > 0){
+                v_alternativo[po] = "I";
+                I--;
+                po++;
+            }
+            while(H > 0){
+                v_alternativo[po] = "H";
+                H--;
+                po++;
+            }
+            while(G > 0){
+                v_alternativo[po] = "G";
+                G--;
+                po++;
+            }
+            while(F > 0){
+                v_alternativo[po] = "F";
+                F--;
+                po++;
+            }
+            while(E > 0){
+                v_alternativo[po] = "E";
+                E--;
+                po++;
+            }
+            while(D > 0){
+                v_alternativo[po] = "D";
+                D--;
+                po++;
+            }
+            while(C > 0){
+                v_alternativo[po] = "C";
+                C--;
+                po++;
+            }
+            while(B > 0){
+                v_alternativo[po] = "B";
+                B--;
+                po++;
+            }
+            while(A > 0){
+                v_alternativo[po] = "A";
+                A--;
+                po++;
+            }
+            
+            v_letras = v_alternativo;
+            
+            //Ciclo para concatenar los elementos del vector en la variable de return
+            for (int i = 0; i < v_letras.length; i++) {
+                text_ret += v_letras[i] + "|";
+            }
+            
+            return text_ret;
+            
+        }
+        
+        catch (Exception error) {
+            throw new Exception("\nSe presento un error en la funcion Ordenar_vector_alfabetico_Des " + error);
+            
+        }
+        
+        finally {
+            //System.out.println("fin de la ejecución");
+            
+        }
+    }
+
+    
+    //Funcion Buscar_vector_numerico
+    public static String Buscar_vector_numerico (byte valor) throws Exception {
+        try {
+            //Variables
+            String text_ret = "";
+            byte posicion=0;
+            boolean hallado = false;
+            
+            //En un ciclo, recorro el vector y busco en que posicion se localiza el vector
+            for (int i = 0; i < v_numeros.length; i++) {
+                if(v_numeros[i] == valor){
+                    posicion = (byte)(i);
+                    hallado  = true;
+                }
+            }
+            
+            //LLeno la cadena que voy a retornar con el mensaje correspondiente
+            if(hallado == false){
+                text_ret = "EL VALOR A CONSULTAR NO SE ENCUENTRA EN EL VECTOR";
+            }
+            else{
+                text_ret = "V:"+valor+" - "+"P:"+posicion;
+            }
+            
+            return text_ret;
+        }
+        
+        catch (Exception error) {
+            throw new Exception("\nSe presento un error en la funcion Buscar_vector_numerico " + error);
+            
+        }
+        
+        finally {
+            //System.out.println("fin de la ejecución");    
+        }
+    }
+
+    //Funcion Buscar_vector_alfabetico
+    public static String Buscar_vector_alfabetico (String valor_t1) throws Exception {
+        try {
+            //Variables
+            String text_ret = "";
+            byte posicion=0;
+            boolean hallado = false;
+            
+            //En un ciclo, recorro el vector y busco en que posicion se localiza el vector
+            for (int i = 0; i < v_letras.length; i++) {
+                if(v_letras[i].equals(valor_t1)){
+                    posicion = (byte)(i);
+                    hallado  = true;
+                }
+            }
+            
+            //LLeno la cadena que voy a retornar con el mensaje correspondiente
+            if(hallado == false){
+                text_ret = "EL VALOR A CONSULTAR NO SE ENCUENTRA EN EL VECTOR";
+            }
+            else{
+                text_ret = "L:"+valor_t1+" - "+"P:"+posicion;
+            }
+            
+            return text_ret;
+        }
+        
+        catch (Exception error) {
+            throw new Exception("\nSe presento un error en la funcion Buscar_vector_alfabetico " + error);
+            
+        }
+        
+        finally {
+            //System.out.println("fin de la ejecución");    
         }
     }
 }
