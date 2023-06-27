@@ -1,0 +1,97 @@
+-Formato para los numeros
+import java.text.DecimalFormat;
+
+DecimalFormat formato = new DecimalFormat("#,###.00");
+String valorFormateado = formato.format(123456.789);
+
+
+-JOptionPanel
+import javax.swing.JOptionPane;
+
+name = JOptionPane.showInputDialog("Ingrese su nombre por favor");
+JOptionPane.showMessageDialog(null, "Su nombre es "+name);
+
+
+-SCANNER
+import java.util.Scanner;
+Scanner on = new Scanner(System.in);
+
+
+-parse
+Se usa para pasar de String a numero
+Byte.parseByte
+
+
+-Aleatorio:
+num = (int)(Math.random()*(7-1)+1);
+
+
+-String.valueOf
+se usa para pasar de dato a String
+String.valueOf
+
+-exponente
+Math.pow(radio, 2)
+
+-char a caracter
+ascii = on.next().charAt(0);
+
+-Raiz
+raiz = (int)(Math.sqrt(num));
+
+
+
+-Saber si dos objetos son iguales
+Equals() se usa para saber si dos objetos son del mismo tipo y tienen los mismos datos.
+equals
+
+-Compara dos cadenas sin tener encuenta mayuscula o minuscula
+equalsIgnoreCase("cad")
+
+
+-ESCRIBIR UN ARCHIVO
+FileWriter arc_datos = new FileWriter("C:/Users/JESUS ALBERTO/Desktop/PRACTICAS/ESCRITURA.TXT");
+PrintWriter linea = new PrintWriter(arc_datos);
+linea.print(escritura);
+
+-LEER UN ARCHIVO
+FileReader arc_votos = new FileReader("");
+BufferedReader dat_votos = new BufferedReader(arc_votos);
+
+
+
+
+
+
+
+
+
+
+
+
+
+=============COLORES================================
+    static String verde ="\u001B[32m";
+    static String rojo ="\u001B[31m";
+    static String reset ="\u001B[0m";
+    
+    static String azul ="\u001B[34m";
+    static String negro ="\u001B[30m";
+    static String amarillo ="\u001B[33m";
+    static String cyan ="\u001B[36m";
+    static String purpura ="\u001B[35m";
+    static String blanco ="\u001B[37m";
+    
+
+try {
+            
+        }
+        
+catch (Exception error) {
+            System.out.println("Se presento un error " + error);
+            
+        }
+        
+finally {
+            System.out.println("fin de la ejecución");
+        }
